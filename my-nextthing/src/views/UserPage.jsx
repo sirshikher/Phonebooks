@@ -25,7 +25,7 @@ import ModalExample from "views/Modal";
 import "antd/dist/antd.css";
 import { Select } from "antd";
 const Option = Select.Option;
-var aa;
+
 var option = {};
 option = {
   place: 'br',
@@ -40,6 +40,13 @@ option = {
   type: "danger",
   icon: "now-ui-icons ui-1_bell-53",
   autoDismiss: 7
+}
+function validate(email, password) {
+  // true means invalid, so our conditions got reversed
+  return {
+    email: email.length === 0,
+    password: password.length === 0
+  };
 }
 
 
@@ -62,9 +69,16 @@ class User extends React.Component {
      language:'',
      previous_project:'',
      current_project:'',
-
+     formErrors: {email: '', password: ''},
      bio:'',
+     email: "",
+     password: "",
+
+     everFocusedEmail: false,
+     everFocusedPassword: false,
+     inFocus: ""
     };
+
   }
   handleChange_slack_id(event) {
     this.setState({ slack_id:event.target.value });
@@ -165,7 +179,17 @@ class User extends React.Component {
        })
 
   }
+
+  canBeSubmitted() {
+    const errors = validate(this.state.link_id, this.state.slack_id);
+    const isDisabled = Object.keys(errors).some(x => errors[x]);
+    return !isDisabled;
+  }
+
   render() {
+
+    const errors = validate(this.state.link_id, this.state.slack_id);
+    const isDisabled = Object.keys(errors).some(x => errors[x]);
     var {
       isloaded, 
       items,
@@ -214,6 +238,7 @@ class User extends React.Component {
                             placeholder="NLI-000"
                             type="text"
                             value={this.state.emp_id}
+                            
                           />
                          
                         </FormGroup>
@@ -366,6 +391,7 @@ class User extends React.Component {
                         <FormGroup>
                           <label>Slack-Id</label>
                           <Input
+                          className={errors.slack_id ? "error" : ""}
                             name="slack_id"
                             type="text"
                             onChange={this.handleChange_slack_id.bind(this)}
@@ -380,6 +406,8 @@ class User extends React.Component {
                         <FormGroup>
                           <label>Linkedin</label>
                           <Input
+                          className={errors.link_id ? "error" : ""}
+
                             type="text"
                             name="link_id"
                             onChange={this.handleChange_link_id.bind(this)}
@@ -462,7 +490,7 @@ class User extends React.Component {
                         <FormGroup>
                           <br/>
                           <NotificationAlert ref="notify" />
-                        <Button  color="info" style={{ borderRadius: '10px',}}trigger="hover">submit</Button>
+                        <Button disabled={isDisabled} color="info" style={{ borderRadius: '10px',}}trigger="hover">submit</Button>
                         </FormGroup>
                         
                         {/* <ModalExample/> */}

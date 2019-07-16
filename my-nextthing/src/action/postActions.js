@@ -175,6 +175,8 @@ const response = axios.put(`https://${id}.ngrok.io/userupdateview/${datamap}`,da
         })
         
       })
+      console.log(data);
+      
     });
 
 }
@@ -206,10 +208,12 @@ const response = await axios.post(`https://${id}.ngrok.io/sendotp`,data ,{
 
 
 export const VerifyOtp = (otp,contact) => async dispatch => {
- 
+  const token = sessionStorage.getItem('token_id');
+
 const response = await axios.get(`https://${id}.ngrok.io/verifyotp` ,{
   mode:"cors",
   headers:{
+    'authentication': token,
     'authorization':otp,
     'contact':contact,
     'Accept':'application/json',

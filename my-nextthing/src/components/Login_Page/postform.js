@@ -8,6 +8,7 @@ import './postform.css'
 import {getProductsError} from '../../Reducer/postReducer'
 import logo from './nineleaps-logo.svg';
 import 'bootstrap/dist/css/bootstrap.css';
+import { hot } from 'react-hot-loader'
 
 class PostForm extends Component {
   constructor(props) {
@@ -144,4 +145,4 @@ function mapStateToProps(state) {
 //   router: PropTypes.func.isRequired,
 // }
 
-export default connect(mapStateToProps, {createPost})(PostForm);
+export default  connect(mapStateToProps, {createPost})(PostForm);

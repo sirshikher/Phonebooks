@@ -10,6 +10,7 @@ import id from '../Service_File/ngrok'
 import '../assets/css/scroller.css'
 
 // reactstrap components
+import NotificationAlert from "react-notification-alert";
 import {
   Buttons,
   Icons,
@@ -36,12 +37,6 @@ import {
 // core components
 import PanelHeader from "components/PanelHeader/PanelHeader.jsx";
 
-import {
-  dashboardPanelChart,
-  dashboardShippedProductsChart,
-  dashboardAllProductsChart,
-  dashboard24HoursPerformanceChart
-} from "variables/charts.jsx";
 // modal style
 const customStyles = {
   content: {
@@ -78,6 +73,23 @@ var style = {
   fontSize: 20,
   // font-Family: 'Josefin Sans', cursive;
 };
+
+
+var option = {};
+option = {
+  place: 'br',
+  message: (
+      <div>
+          <div>
+            <p>Manager added</p>
+              
+          </div>
+      </div>
+  ),
+  type: "success",
+  icon: "now-ui-icons ui-1_bell-53",
+  autoDismiss: 7
+}
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -164,6 +176,8 @@ class Dashboard extends React.Component {
 
   }
   open(item, index) {
+    this.myFunc();
+
     window.localStorage.removeItem('emails');
     const searched_client_id = localStorage.getItem('edit_id');
     const token = sessionStorage.getItem('token_id');
@@ -200,6 +214,9 @@ class Dashboard extends React.Component {
     console.log(item.email);
     console.log(index);
 
+  }
+  myFunc(){
+    this.refs.notify.notificationAlert(option);
   }
 
   onsubmit(e) {
@@ -256,19 +273,19 @@ class Dashboard extends React.Component {
       )
     }
   
-    if (isloa) {
+    // if (isloa) {
       
-        return (
-        <div>
-          {
-            alert(stat)
-            }
-          {window.location.reload()}
-        </div>);
+    //     return (
+    //     <div>
+    //       {
+    //         alert(stat)
+    //         }
+    //       {window.location.reload()}
+    //     </div>);
 
         
     
-    }
+    // }
     if (!isloaded) {
 
       return (
@@ -306,7 +323,7 @@ class Dashboard extends React.Component {
                   <h5 className="card-category">Details</h5>
                   {data.User.map((item) => (
 
-                  <CardTitle tag="h4">About-Me:{item.bio}</CardTitle>
+                  <CardTitle tag="h4">About-Mee:{item.bio}</CardTitle>
                   ))}
                   <UncontrolledDropdown>
                     <DropdownToggle
@@ -516,7 +533,7 @@ class Dashboard extends React.Component {
                               <li key={`${item.name}_{item.email}`}>
                                 <div>
                                   <b> {item.name}</b><br></br>Email - {item.email}
-
+                                  <NotificationAlert ref="notify" />
                                   <button style={{ backgroundColor: "white", marginLeft: "325px", marginTop: "-36px" }} onClick={this.open.bind(this, item, index)} variant="Danger">Add Manager</button>
 
                                 </div>

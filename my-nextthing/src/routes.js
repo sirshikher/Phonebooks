@@ -12,7 +12,7 @@ var dashRoutes = [
   {
     path: "/dashboard",
     name: "Homepage",
-    icon: "design_app",
+    icon: "business_bank",
     component: Authguard(Dashboard),
     layout: "/admin"
   },
@@ -38,7 +38,7 @@ var dashRoutes = [
   {
     path: "/extended-tables",
     name: "View-Page",
-    icon: "files_paper",
+    icon: "users_single-02",
     component: Authguard(Viewpage),
     layout: "/admin"
   },
