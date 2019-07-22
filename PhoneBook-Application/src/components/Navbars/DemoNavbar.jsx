@@ -1,8 +1,8 @@
 import React from "react";
 import {
- 
+
   Navbar,
- 
+
   Container,
   InputGroup,
   InputGroupText,
@@ -19,44 +19,44 @@ import ReactSearchBox from 'react-search-box';
 import routes from "routes.js";
 
 class Header extends React.Component {
-constructor(props){
-  super(props);
+  constructor(props) {
+    super(props);
     this.state = {
       isOpen: false,
-    dropdownOpen: false,
-    color: "transparent",
-    aa:'',
-    items:[],
-    goto_view:false,
-    trydata : ''
+      dropdownOpen: false,
+      color: "transparent",
+      aa: '',
+      items: [],
+      goto_view: false,
+      trydata: ''
     }
     this.open1 = this.open1.bind(this);
   }
 
-  open1(data) {
-   
+  open1(data,e) {
+e.preventDefault();
     window.location.reload();
     console.log(data.client_id)
     this.setdata(data.client_id)
     sessionStorage.setItem('lelo', data.client_id);
     // this.props.
- this.setState({
+    this.setState({
 
 
-})
-   }
+    })
+  }
 
-   
 
-setdata=(a)=>{
-  // this.setState({
-  //   trydata : a,
-  //   goto_view : true
-  // })
-  return(
-    this.props.history.push('/searched_user')      )
-  
-}
+
+  setdata = (a) => {
+    // this.setState({
+    //   trydata : a,
+    //   goto_view : true
+    // })
+    return (
+      this.props.history.push('/searched_user'))
+
+  }
 
   componentDidMount() {
     window.addEventListener("resize", this.updateColor.bind(this));
@@ -144,22 +144,22 @@ setdata=(a)=>{
     }
   }
   render() {
-   
+
     var {
       isloaded,
       items,
     } = this.state;
 
-   
+
     if (!isloaded) {
 
       return (
-      <div>
-        
-      </div>);
+        <div>
+
+        </div>);
 
     } else {
-  
+
       const values = items;
 
       return (
@@ -186,27 +186,27 @@ setdata=(a)=>{
 
 
             <form>
-           
-             < InputGroup className="no-border">
-                 
+
+              < InputGroup className="no-border">
+
                 <ReactSearchBox
                   placeholder="Search.."
-                  onSelect={ this.open1.bind(values.value)}
+                  onSelect={this.open1.bind(values.value)}
                   data={values}
 
-                  />
-                
-                
-                 
+                />
+
+
+
                 <InputGroupAddon addonType="append">
-                <InputGroupText className="input-group.no-border .input-group-append .input-group-text">
-                  <i className="now-ui-icons ui-1_zoom-bold " />
-                </InputGroupText>
-              </InputGroupAddon>
+                  <InputGroupText className="input-group.no-border .input-group-append .input-group-text">
+                    <i className="now-ui-icons ui-1_zoom-bold " />
+                  </InputGroupText>
+                </InputGroupAddon>
               </InputGroup>
-              
-              
-                       {/* < InputGroup className="no-border">
+
+
+              {/* < InputGroup className="no-border">
                 <Input placeholder="Search..." />
                 <InputGroupAddon addonType="append">
                   <InputGroupText>

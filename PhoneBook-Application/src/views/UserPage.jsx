@@ -379,7 +379,7 @@ aaa(){
                       </Col> */}
                     </Row>
                     <Row>
-                      <Col md="3">
+                      <Col md="4">
                         <FormGroup>
                           <label>Hobbies</label>
                           <Input
@@ -391,13 +391,21 @@ aaa(){
                           />
                         </FormGroup>
                       </Col>
-                      <Col className="pl-0" md="5">
+                     
+                      <Col className="pl-0" md="4">
                         <FormGroup>
-                       
+                          <label>Designation</label>
+                          <Input
+                          // className={errors.slack_id ? "error" : ""}
+                            name="slack_id"
+                            type="text"
+                            onChange={this.handleChange.bind(this)}
+                            value={this.state.slack_id}
 
+                          />
                         </FormGroup>
                       </Col>
-                      <Col className="pl-0" md="3">
+                      <Col className="pl-0" md="4">
                         <FormGroup>
                           <label>Slack-Id</label>
                           <Input
@@ -412,7 +420,7 @@ aaa(){
                       </Col>
                     </Row>
                     <Row>
-                    <Col className="pr-1" md="4">
+                    <Col className="pr-1" md="3">
                         <FormGroup>
                           <label>Linkedin</label>
                           <Input
@@ -451,7 +459,7 @@ aaa(){
                       <Col  md="12">
                         <FormGroup>
                           <label>Bio</label>
-                          <Input
+                          <Input style={{overflow:"auto"}}
                             cols="80"
                             
                             placeholder="Write something about youself--- "

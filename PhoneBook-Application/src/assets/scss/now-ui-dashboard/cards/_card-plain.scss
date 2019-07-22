@@ -2,6 +2,8 @@
 .card-plain{
     background: transparent;
     box-shadow: none;
+    overflow:auto;
+    min-height: 50%;
 
     .card-header,
     .card-footer{
@@ -9,9 +11,16 @@
         margin-right: 0;
         background-color: transparent;
     }
+    .card-body{
+        min-height: 50%;
+         overflow-x: visible;
+         overflow-y: visible;
+         overflow:auto;
+    }
 
     &:not(.card-subcategories).card-body{
         padding-left: 0;
         padding-right: 0;
+        overflow:auto;
     }
 }

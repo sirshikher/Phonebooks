@@ -226,7 +226,7 @@ this.props.Homepage()
                   <h5 className="card-category">Details</h5>
                   {data.User.map((item,index) => (
 
-                  <CardTitle  key={index} tag="h4">About-Mee:{item.bio}</CardTitle>
+                  <CardTitle  key={index} tag="h4">About-Me:{item.bio}</CardTitle>
                   ))}
                   <UncontrolledDropdown>
                     <DropdownToggle
@@ -264,10 +264,12 @@ this.props.Homepage()
             <Row>
             <Col md="4" >
                     <Card className="card-user" style={{borderRadius:"8px"}}>
-            <div className="image">
+            
+                    <CardBody>
+                    <div className="image">
                     <img alt="..." src={require("assets/img/bg5.jpg")} />
             </div>
-                    <CardBody>
+                     
                     <div className="author">
          <a href="#pablo" onClick={e => e.preventDefault()}>
          {data.User.map((item,index) => (
@@ -289,7 +291,7 @@ this.props.Homepage()
                      ))} 
                     </FormGroup>
                   </Col>
-                    <br/>
+                
 
                  <Col className="pr-1" >
                     <FormGroup>
@@ -298,28 +300,24 @@ this.props.Homepage()
                     <h6 key={index}><label>{item.emp_id}
                     </label></h6>
                     ))}
-                    </FormGroup>
-                </Col>
-           <br/>
-                 <Col className="pr-1" >
-                    <FormGroup>
+
                     {data.User.map((item,index) => (
 
                     <h6  key={index}><label>{item.email}</label></h6>
                     ))}
                     </FormGroup>
                 </Col>
+                <br/>
 
                     </div>
           </CardBody>
-<br/>
-<br/>
-            <CardFooter>
+
+          <CardFooter>
                     <div className="stats">
-                    <i className="now-ui-icons arrows-1_refresh-69" /> Just
-                    Updated
-                    </div>
-          </CardFooter>
+                      <i className="now-ui-icons arrows-1_refresh-69" /> Just
+                      Updated
+                  </div>
+                  </CardFooter>
 
                </Card>
                     </Col>
@@ -377,6 +375,10 @@ this.props.Homepage()
                       </DropdownMenu>
                     </UncontrolledDropdown>
                   </CardHeader>
+
+
+
+
                   <CardBody>
                     <div className="chart-area">
                       <Col className="pr-1" >
@@ -404,8 +406,7 @@ this.props.Homepage()
 
                     </div>
                   </CardBody>
-                  <br />
-                  <br/>
+                 
 
                   <CardFooter>
                     <div className="stats">
@@ -415,6 +416,7 @@ this.props.Homepage()
                   </CardFooter>
                 </Card>
               </Col>
+              
               <Col xs={8} md={4}>
                 <Card className="card-chart" style={{ borderRadius: "6px" }}>
                   <CardHeader>

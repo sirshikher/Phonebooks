@@ -89,7 +89,7 @@ this.setState({
         <div className="content">
         <Row>
             <Col xs={12} md={4}>
-              <Card className="card-chart" style={{borderRadius:"8px"}}>
+              <Card className="card-chart" style={{borderRadius:"8px",}}>
                 <CardHeader>
                   <h6 className="card-category">Details</h6>
                   <CardTitle tag="h4">Basic-Details</CardTitle>
@@ -158,10 +158,7 @@ this.setState({
                         {data.Designation.map((item,index) => (
                           <h6 key={index}><label>Designation : {item.designation}</label></h6>
                         ))}
-                          {/* <Input
-                           
-                            type="text"
-                          /> */}
+                          
                         </FormGroup>
                       </Col>
                       
@@ -170,7 +167,6 @@ this.setState({
                       
                  
                   </div>
-                 <br/>
                 </CardBody>
                 <CardFooter>
                   <div className="stats">
@@ -205,7 +201,6 @@ this.setState({
                     </DropdownMenu>
                   </UncontrolledDropdown>
                 </CardHeader>
-                <br/>
                 <CardBody>
                   <div className="chart-area">
                        <Col className="pr-1" >
@@ -234,19 +229,13 @@ this.setState({
                         <h6 key={index}><label>Location : {item.location} </label></h6>
                         ))}
                           
-                          {/* <Input 
-                            placeholder="NLI-000"
-                            type="text"
-                          /> */}
+                        
                         </FormGroup>
                       </Col>  
                    
                   </div>
                 </CardBody>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
+              
                 <CardFooter>
                   <div className="stats">
                     <i className="now-ui-icons arrows-1_refresh-69" /> Just
@@ -277,7 +266,6 @@ this.setState({
                     </DropdownMenu>
                   </UncontrolledDropdown>
                 </CardHeader>
-                <br/>
                 <CardBody >
                   <div className="chart-area" >
                   <Col className="pr-1" >
@@ -298,18 +286,10 @@ this.setState({
                           {data.Basic.map((item,index) => (
                           <h6 key={index}><label>Duration :{item.duration} </label></h6>
                           ))}
-                          <br/>
-                          {/* <h5><label>Location </label></h5> */}
-                          {/* <Input 
-                            placeholder="NLI-000"
-                            type="text"
-                          /> */}
+               
                         </FormGroup>
                       </Col> 
-                    {/* <Bar
-                      data={dashboard24HoursPerformanceChart.data}
-                      options={dashboard24HoursPerformanceChart.options}
-                    /> */}
+                   
                   </div>
                 </CardBody>
                 <CardFooter>
@@ -343,7 +323,6 @@ this.setState({
                     </DropdownMenu>
                   </UncontrolledDropdown>
                 </CardHeader>
-                <br/>
                 <CardBody>
                   <div className="chart-area">
                   <Col className="pr-1" >
@@ -351,7 +330,6 @@ this.setState({
                         {data.Basic.map((item,index) => (
                           <h6 key={index}><label>Hobbies : {item.hobbies} </label></h6>
                         ))}
-                          <br/>
                           <br/>
                           {data.Basic.map((item,index) => (
                           <h6 key={index}><label>Languages : {item.language} </label></h6>

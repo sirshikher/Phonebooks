@@ -15,10 +15,16 @@
 
     .card-body{
         padding: 15px 15px 10px 15px;
+        min-height: 50%;
+        overflow-x: visible;
+        overflow-y: visible;
+        overflow:auto;
+
 
         &.table-full-width{
             padding-left: 0;
             padding-right: 0;
+          
         }
     }
 
